@@ -1,7 +1,14 @@
 const { PythonShell } = require("python-shell");
 const path = require("path");
 const pathToPythonScript = path.join(__dirname, "script.py");
-const pyshell = PythonShell.run(pathToPythonScript, null, (err) => {
+
+let options = {
+  mode: "text",
+  pythonPath: "python",
+  pythonOptions: ["-u"], // get print results in real-time
+};
+
+const pyshell = PythonShell.run(pathToPythonScript, options, (err) => {
   if (err) throw err;
   console.log("finished");
 });

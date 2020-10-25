@@ -34,6 +34,7 @@ def getWord(word):
   global r
   global success
   global num
+  # print(word)
   try:
     #print(str(threading.active_count()) + f" {num} the function got {word}")
     dummy = requests.get(f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}",proxies=p.FormatProxy()).json()
