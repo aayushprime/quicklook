@@ -11,5 +11,9 @@
   },
   "dependencies": {
     "python-shell": "^2.0.2"
+  },
+  "build": {
+    "appId": "com.quicklook.app",
+    "asar": false
   }
 }

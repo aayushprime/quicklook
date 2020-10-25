@@ -1,6 +1,10 @@
-let { PythonShell } = require("python-shell");
-
-let pyshell = PythonShell.run("./script/multithreads.py");
+const { PythonShell } = require("python-shell");
+const path = require("path");
+const pathToPythonScript = path.join(__dirname, "script.py");
+const pyshell = PythonShell.run(pathToPythonScript, null, (err) => {
+  if (err) throw err;
+  console.log("finished");
+});
 
 function def(definition) {
   return `
@@ -54,7 +58,7 @@ function template(pos) {
 
 pyshell.on("message", function (message) {
   // received a message sent from the Python script (a simple "print" statement)
-  console.log(message);
+  //console.log(message);
   message = JSON.parse(message);
   let div = document.getElementById("content");
   div.innerHTML = `${message.map(template).join("")}`;
