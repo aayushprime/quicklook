@@ -7,7 +7,14 @@ const url = require("url");
 let win;
 
 function createWindow() {
-  win = new BrowserWindow({ webPreferences: { nodeIntegration: true } });
+  win = new BrowserWindow({
+    webPreferences: { nodeIntegration: true, enableRemoteModule: true },
+    frame: false,
+    minWidth: 400,
+    minHeight: 600,
+    height: 800,
+    width: 1200,
+  });
   win.loadURL(
     url.format({
       pathname: path.join(__dirname, "index.html"),

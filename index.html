@@ -9,14 +9,32 @@
   
 </head>
 <body>
-  <div class="apptitle">
-    <h1>Quick Look</h1> 
-  </div>
   
-  <div id="content"></div>
+    <div class="apptitle">
+      <div class="left">
+        <h1>Quick Look</h1> 
+      </div>
+      <div id="close-button" class="apptitle-button right"></div>
+    </div>
+
+    <div class="filler"></div>
+  
+  <div id="content" class="sans-serif align">
+    <h2>This application monitors your clipboard.</h2><br> 
+    <h4>It makes API requests to fetch the meaning of the word(s). </h4><br>
+    <div class="serif align">
+    Try it now!
+    </div>
+  </div>
+
 </body>
 <script>
   require('./index.js');
+  const remote = require('electron').remote;
+  document.getElementById("close-button").addEventListener("click", function (e) {
+       var window = remote.getCurrentWindow();
+       window.close();
+  }); 
   
 </script>
 </html>
