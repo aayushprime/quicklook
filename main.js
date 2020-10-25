@@ -7,7 +7,7 @@ const url = require("url");
 let win;
 
 function createWindow() {
-  win = new BrowserWindow();
+  win = new BrowserWindow({ webPreferences: { nodeIntegration: true } });
   win.loadURL(
     url.format({
       pathname: path.join(__dirname, "index.html"),
